@@ -11,6 +11,27 @@ Useful utilities for Sheetbase backend app.
 ## Usage
 
 ```ts
+// o2a
+const o = {
+	a: 1,
+	b: 2,
+	c: {
+		c1: 1,
+		c2: 2
+	}
+};
+const a = Utils.o2a(o);
+Logger.log(a);
+
+// a2o
+const a = [1, 2, {a: 1, b: 2, c: 3}];
+const o = Utils.a2o(a);
+Logger.log(o);
+
+// uid
+Logger.log( Utils.uid() );
+Logger.log( Utils.uid(32) );
+Logger.log( Utils.uid(12, '1') );
 
 ```
 
