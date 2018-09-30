@@ -1,0 +1,25 @@
+{
+	"name": "@sheetbase/utils-server",
+	"type": "module",
+	"version": "0.0.1",
+	"description": "Useful utilities for Sheetbase backend app.",
+	"author": "Sheetbase",
+	"homepage": "https://sheetbase.net",
+	"license": "MIT",
+	"keywords": [
+		"google-apps-script",
+		"utilities",
+		"sheetbase"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sheetbase/module-utils-server.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sheetbase/module-utils-server/issues"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/google-apps-script": "0.0.28"
+	}
+}
