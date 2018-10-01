@@ -2,7 +2,7 @@
  * 
  * Name: @sheetbase/utils-server
  * Description: Useful utilities for Sheetbase backend app.
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Sheetbase
  * Homepage: https://sheetbase.net
  * License: MIT
@@ -16,8 +16,8 @@ const utils = utilsModuleExports();
 const Utils = utils;
 const UTILS = utils;
 
-for (const key of Object.keys(utils)) {
-	this[key] = utils[key];
+for (const prop of Object.keys({... utils, ... Object.getPrototypeOf(utils)})) {
+	this[prop] = utils[prop];
 }
 
 export { utils, Utils, UTILS };
