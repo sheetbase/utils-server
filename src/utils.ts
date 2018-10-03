@@ -1,16 +1,12 @@
-import { IUtilsModule } from './types/module';
-export function utilsModuleExports(): IUtilsModule {
+import { IModule } from './types/module';
+
+export function utilsModuleExports(): IModule {
 
     class Utils {
 
         constructor() { }
 
-        /**
-        * Turn object into array
-        * @param {object} object - JSON data
-        * @return {array}
-        */
-        o2a(object: {[key: string]: any}, keyName: string = '$key'): any[] {
+        o2a<Obj, K extends keyof Obj, P extends Obj[K]>(object: Obj, keyName: string = '$key'): ((P extends {[key: string]: any} ? P: {value: P}) & {$key: string})[] {
             let array = [];
             for (const key of Object.keys(object)) {
                 if (object[key] instanceof Object) {
@@ -26,12 +22,7 @@ export function utilsModuleExports(): IUtilsModule {
             return array;
         }
 
-        /**
-         * Turn array into object
-         * @param {array} array - input array
-         * @return {object}
-         */
-        a2o(array: any[], keyName: string = 'key'): {[key: string]: any} {
+        a2o<Obj>(array: Obj[], keyName: string = 'key'): {[key: string]: Obj} {
             let object = {};
             for (let i = 0; i < (array || []).length; i++) {
                 let item = array[i];
@@ -40,12 +31,8 @@ export function utilsModuleExports(): IUtilsModule {
             return object;
         }
 
-        /**
-         * Generate unique UID
-         * @return {string} uid
-         */
-        uid(length: number = 12, startWith: string = '-') {
-            let maxLoop = length + 12;
+        uniqueId(length: number = 12, startWith: string = '-'): string {
+            let maxLoop = length - 8;
             let ASCII_CHARS = startWith + '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
             let lastPushTime = 0;
             let lastRandChars = [];
@@ -58,7 +45,7 @@ export function utilsModuleExports(): IUtilsModule {
                 timeStampChars[i] = ASCII_CHARS.charAt(now % 64);
                 now = Math.floor(now / 64);
             }
-            let id = timeStampChars.join('');
+            let uid = timeStampChars.join('');
             if (!duplicateTime) {
                 for (i = 0; i < maxLoop; i++) {
                     lastRandChars[i] = Math.floor(Math.random() * 64);
@@ -70,11 +57,47 @@ export function utilsModuleExports(): IUtilsModule {
                 lastRandChars[i]++;
             }
             for (i = 0; i < maxLoop; i++) {
-                id += ASCII_CHARS.charAt(lastRandChars[i]);
+                uid += ASCII_CHARS.charAt(lastRandChars[i]);
             }
-            return id.substr(0, length);
+            return uid;
+        }
+
+        honorData<Obj>(data: Obj | any = {}): ({[K in keyof Obj]: any}) {
+            for (const key in data) {
+                if (data[key] === '' || data[key] === null || data[key] === undefined) {
+                    // delete null key
+                    delete data[key];
+                }
+                else if ((data[key] + '').toLowerCase() === 'true') {
+                    // boolean TRUE
+                    data[key] = true;
+                }
+                else if ((data[key] + '').toLowerCase() === 'false') {
+                    // boolean FALSE
+                    data[key] = false;
+                }
+                else if (!isNaN(data[key])) {
+                    // number
+                    if (Number(data[key]) % 1 === 0) {
+                        data[key] = parseInt(data[key]);
+                    }
+                    if (Number(data[key]) % 1 !== 0) {
+                        data[key] = parseFloat(data[key]);
+                    }
+                }
+                else {
+                    // JSON
+                    try {
+                        data[key] = JSON.parse(data[key]);
+                    } catch (e) {
+                        // continue
+                    }
+                }
+            }
+            return data;
         }
     }
 
-    return new Utils();
+    let moduleExports: IModule =  new Utils();
+    return moduleExports;
 }

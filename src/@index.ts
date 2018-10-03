@@ -2,7 +2,7 @@
  * 
  * Name: @sheetbase/utils-server
  * Description: Useful utilities for Sheetbase backend app.
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Sheetbase
  * Homepage: https://sheetbase.net
  * License: MIT
@@ -10,17 +10,14 @@
  *
  */
 
-import { IUtilsModule } from './types/module';
-declare const utilsModuleExports: {(): IUtilsModule};
-const utils = utilsModuleExports();
-const Utils = utils;
-const UTILS = utils;
+import { IModule } from './types/module';
 
-for (const prop of Object.keys({... utils, ... Object.getPrototypeOf(utils)})) {
-	this[prop] = utils[prop];
+declare const utilsModuleExports: {(): IModule};
+
+export const Utils = utilsModuleExports();
+for (const prop of Object.keys({... Utils, ... Object.getPrototypeOf(Utils)})) {
+	this[prop] = Utils[prop];
 }
-
-export { utils, Utils, UTILS };
 
 export function sheetbase_utils_example1(): void {
     const o = {
@@ -36,13 +33,27 @@ export function sheetbase_utils_example1(): void {
 }
 
 export function sheetbase_utils_example2(): void {
-    const a = [1, 2, {a: 1, b: 2, c: 3}];
+    const a = [1, 2, {a: 1, b: 2, c: 3}, {key: 'd', d1: 2, d2: 2}];
     const o = Utils.a2o(a);
     Logger.log(o);
 }
 
 export function sheetbase_utils_example3(): void {
-    Logger.log( Utils.uid() );
-    Logger.log( Utils.uid(32) );
-    Logger.log( Utils.uid(12, '1') );
+    Logger.log( Utils.uniqueId() );
+    Logger.log( Utils.uniqueId(32) );
+    Logger.log( Utils.uniqueId(12, '1') );
+}
+
+export function sheetbase_utils_example4(): void {
+    const o = {
+        a: 1,
+        a1: '1',
+        b: true,
+        b1: 'TRUE',
+        c: { c1: 1, c2: 2 }, 
+        c1: '{ "c1": 1, "c2": 2 }',
+        d: null
+    };
+    const output = Utils.honorData(o);
+    Logger.log(output);
 }

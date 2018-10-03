@@ -1,5 +1,6 @@
-export interface IUtilsModule {
-    o2a: {(object: {[key: string]: any}, keyName?: string): any[]};
-    a2o: {(array: any[], keyName?: string): {[key: string]: any}};
-    uid: {(length?: number, startWith?: string)};
+export interface IModule {
+    o2a<Obj, K extends keyof Obj, P extends Obj[K]>(object: Obj, keyName?: string): ((P extends {[key: string]: any} ? P: {value: P}) & {$key: string})[];
+    a2o<Obj>(array: Obj[], keyName?: string): {[$key: string]: Obj}
+    uniqueId(length?: number, startWith?: string): string;
+    honorData<Obj>(data?: Obj): ({[K in keyof Obj]: any});
 }
