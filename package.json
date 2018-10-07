@@ -1,7 +1,7 @@
 {
 	"name": "@sheetbase/utils-server",
 	"type": "module",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Useful utilities for Sheetbase backend app.",
 	"author": "Sheetbase",
 	"homepage": "https://sheetbase.net",
@@ -24,7 +24,7 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@sheetbase/app-scripts": "0.0.2",
+		"@sheetbase/app-scripts": "0.0.5",
 		"@types/google-apps-script": "0.0.28"
 	}
 }

@@ -1,25 +1,8 @@
-/**
- * 
- * Name: @sheetbase/utils-server
- * Description: Useful utilities for Sheetbase backend app.
- * Version: 0.0.3
- * Author: Sheetbase
- * Homepage: https://sheetbase.net
- * License: MIT
- * Repo: https://github.com/sheetbase/module-utils-server.git
- *
- */
-
 import { IModule } from './types/module';
+declare const UtilsModule: {(): IModule};
+var Utils = Utils || UtilsModule();
 
-declare const utilsModuleExports: {(): IModule};
-
-export const Utils = utilsModuleExports();
-for (const prop of Object.keys({... Utils, ... Object.getPrototypeOf(Utils)})) {
-	this[prop] = Utils[prop];
-}
-
-export function sheetbase_utils_example1(): void {
+export function example1(): void {
     const o = {
         a: 1,
         b: 2,
@@ -32,19 +15,19 @@ export function sheetbase_utils_example1(): void {
     Logger.log(a);
 }
 
-export function sheetbase_utils_example2(): void {
+export function example2(): void {
     const a = [1, 2, {a: 1, b: 2, c: 3}, {key: 'd', d1: 2, d2: 2}];
     const o = Utils.a2o(a);
     Logger.log(o);
 }
 
-export function sheetbase_utils_example3(): void {
+export function example3(): void {
     Logger.log( Utils.uniqueId() );
     Logger.log( Utils.uniqueId(32) );
     Logger.log( Utils.uniqueId(12, '1') );
 }
 
-export function sheetbase_utils_example4(): void {
+export function example4(): void {
     const o = {
         a: 1,
         a1: '1',
