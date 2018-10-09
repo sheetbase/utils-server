@@ -61,11 +61,11 @@ function example4(): void {
 
 ## Documentation
 
-See the docs: https://sheetbase.github.com/module-utils-server
+See the docs: https://sheetbase.github.io/module-utils-server
 
 ## API
 
-An overview of the API, for detail please refer [the documentation](https://sheetbase.github.com/module-utils-server)
+An overview of the API, for detail please refer [the documentation](https://sheetbase.github.io/module-utils-server)
 
 ### Utils
 
