@@ -5,7 +5,7 @@ var module = module || { exports: exports };
  * Name: @sheetbase/utils-server
  * Export name: Utils
  * Description: Useful utilities for Sheetbase backend app.
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Sheetbase
  * Homepage: https://sheetbase.net
  * License: MIT
@@ -114,12 +114,11 @@ function UtilsModule() {
         };
         return Utils;
     }());
-    // import { IModule } from './types/module';
-    // import { Utils } from './utils';
     var moduleExports = new Utils();
     return moduleExports || {};
 }
 exports.UtilsModule = UtilsModule;
-// add to the global namespace
-var proccess = proccess || this;
-proccess['Utils'] = UtilsModule();
+// add 'Utils' to the global namespace
+(function (process) {
+    process['Utils'] = UtilsModule();
+})(this);

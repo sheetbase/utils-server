@@ -1,7 +1,6 @@
 {
 	"name": "@sheetbase/utils-server",
-	"type": "module",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Useful utilities for Sheetbase backend app.",
 	"author": "Sheetbase",
 	"homepage": "https://sheetbase.net",
@@ -9,7 +8,7 @@
 	"scripts": {
 		"build:code": "sheetbase-app-scripts build",
 		"build:readme": "sheetbase-app-scripts readme",
-		"build:docs": "typedoc ./src --out ./docs --mode file --target ES6 --excludeExternals --excludeNotExported",
+		"build:docs": "typedoc ./src --out ./docs --mode file --target ES6 --excludeExternals --excludeNotExported --ignoreCompilerErrors",
 		"build": "npm run build:code && npm run build:readme && npm run build:docs",
 		"push": "sheetbase-app-scripts push"
 	},
@@ -27,7 +26,7 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@sheetbase/app-scripts": "0.0.7",
+		"@sheetbase/app-scripts": "0.0.14",
 		"@types/google-apps-script": "0.0.28"
 	}
 }

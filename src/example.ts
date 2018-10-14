@@ -1,6 +1,6 @@
-import { IModule } from './types/module';
-declare const UtilsModule: {(): IModule};
-var Utils = Utils || UtilsModule();
+import { UtilsModule } from '../index';
+
+const Utils = UtilsModule();
 
 export function example1(): void {
     const o = {
