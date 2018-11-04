@@ -1,6 +1,5 @@
+.nyc_output/
 node_modules/
 dist/
 coverage/
-src/*.js
-tests/*.js
-.nyc_output
+tests/.out-tsc/

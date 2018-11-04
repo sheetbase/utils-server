@@ -1,19 +1,19 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "target": "es5",
-    "noImplicitAny": false,
+    "target": "es3",
+    "module": "es2015",
+    "outDir": "./dist",
+    "declaration": true,
+    "noImplicitUseStrict": true,
     "strictNullChecks": false,
+		"noImplicitAny": false,
+    "experimentalDecorators": true,
     "lib": [
-      "es2015",
-      "es5",
-      "es6",
-      "es2017"
-    ],
-    "strict": true,
+      "es2015"
+    ]
   },
   "moduleResolution": "node",
   "files": [
-    "tests/test.ts"
+    "src/public_api.ts"
   ]
 }

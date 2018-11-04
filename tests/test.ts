@@ -1,14 +1,9 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 
-import { Utils as UtilsService } from '../src/utils';
+import * as Utils from '../src/public_api';
 
 describe('Utils Server test', () => {
-    let Utils: UtilsService;
-
-    beforeEach(() => {
-        Utils = new UtilsService();
-    });
 
     it('#o2a should work', () => {
         const OBJ = { a: 1, b: 2, c: { c1: 1, c2: 2 } };
