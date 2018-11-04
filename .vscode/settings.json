@@ -1,10 +1,12 @@
 {
-    "files.exclude": {
-        "**/docs": true,
-        "**/dist": true,
+    "files.exclude": {	
         "**/.vscode": true,
         "**/.nyc_output": true,
-        "**/sheetbase.module.js": true,
-        "**/src/**/*.js": true
+        "**/docs": true,
+        "**/dist": true,
+        "**/coverage": true,
+		"**/src/**/*.js": true,
+		"**/tests/**/*.js": true,
+        "**/sheetbase.module.js": true
     }
 }
