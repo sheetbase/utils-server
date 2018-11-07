@@ -1,19 +1,9 @@
 {
+  "extends": "./node_modules/@sheetbase/app-scripts/config/tsconfig.json",
   "compilerOptions": {
-    "target": "es3",
-    "module": "es2015",
-    "outDir": "./dist",
-    "declaration": true,
-    "noImplicitUseStrict": true,
-    "strictNullChecks": false,
-		"noImplicitAny": false,
-    "experimentalDecorators": true,
-    "lib": [
-      "es2015"
-    ]
-  },
-  "moduleResolution": "node",
-  "files": [
-    "src/public_api.ts"
+    "outDir": "./dist"
+	},
+	"files": [
+    "./src/public_api.ts"
   ]
 }

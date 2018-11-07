@@ -1,3 +1,0 @@
-var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"64":"Function"},"rows":[{"id":0,"kind":64,"name":"o2a","url":"globals.html#o2a","classes":"tsd-kind-function tsd-has-type-parameter"},{"id":1,"kind":64,"name":"a2o","url":"globals.html#a2o","classes":"tsd-kind-function tsd-has-type-parameter"},{"id":2,"kind":64,"name":"uniqueId","url":"globals.html#uniqueid","classes":"tsd-kind-function"},{"id":3,"kind":64,"name":"honorData","url":"globals.html#honordata","classes":"tsd-kind-function tsd-has-type-parameter"}]};

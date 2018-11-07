@@ -1,5 +1,10 @@
-.nyc_output/
 node_modules/
+
+# build
 dist/
+deploy/
+
+# test
+.nyc_output/
 coverage/
-tests/.out-tsc/
+tests/out-tsc/
