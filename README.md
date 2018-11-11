@@ -1,3 +1,7 @@
+# ⛔️ DEPRECATED
+
+We have merged this repo with [@sheetbase/core-server](https://github.com/sheetbase/core-server), please use it instead.
+
 # Sheetbase Module: @sheetbase/utils-server
 
 Useful utilities for Sheetbase backend app.
